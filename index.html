@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NECTAR</title>
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar" class="cart-sidebar">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <span class="close-btn" onclick="closeCart()">&times;</span>
+  </div>
+  <div class="cart-items">
+    <p>Your cart is empty.</p>
+  </div>
+  <div class="cart-footer">
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+<body>
+
+  <!-- Top Bar -->
+<div class="top-bar">
+  <span class="scroll-text">FREE SHIPPING ON ALL ORDERS!</span>
+</div>
+
+
+  <!-- Navbar -->
+  <nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/logo2.png" href="index.html" alt="Nectar Logo">
+    </a>
+  </div>
+
+  <!-- Main menu -->
+  <ul id="mobileMenu">
+    <li><a href="index.html#trim2">ABOUT</a></li>
+    <li><a href="shop.html">SHOP</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="account.html">ACCOUNT</a></li>
+    <li><a href="cart.html">CART</a></li>
+  </ul>
+
+  <!-- Hamburger button -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>NECTAR</h1>
+      <p>Sparkling Fruit Juice</p>
+      <button>Shop Nectar</button>
+    </div>
+  </section>
+
+  <section class="content">
+
+    <h1 class="img-title">Why Drink Nectar?</h1>
+
+    <!-- Fun Facts -->
+    <div class="img-facts">
+      <img src="images/fact3.png" alt="No GMO">
+      <img src="images/fact1.png" alt="Real Fruits" id="Real-Fruits">
+      <img src="images/fact2.png" alt="Only 5g Sugar">
+      <img src="images/fact5.png" alt="Natural Flavors">
+      <img src="images/fact4.png" alt="25 Calories">
+    </div>
+
+    <div class="trim">
+    <img src="images/trim1.png" id="trim1">
+    </div>
+
+    <section>
+
+  <div class="image-container">
+    <h1>Best Sellers</h1>
+    <div class="drinks">
+      
+      <!-- Product 1 -->
+      <div class="product">
+        <img src="images/1.png" alt="Main Image" class="main-img">
+        <img src="images/2.png" alt="Hover Image" class="hover-img">
+        <button class="add-to-cart">Add to Cart</button>
+        <p>Strawberry Sparkling Soda is a refreshing, bubbly drink 
+          bursting with the sweet and tangy flavor of ripe strawberries. 
+          Light, fizzy, and crisp, it’s the perfect balance of fruity sweetness 
+          and sparkling refreshment.
+        </p>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product">
+        <img src="images/3.png" alt="Main Image" class="main-img">
+        <img src="images/4.png" alt="Hover Image" class="hover-img">
+        <button class="add-to-cart">Add to Cart</button>
+        <p>Kiwi Sparkling Soda is a zesty, invigorating drink with the bright, 
+          tropical flavor of fresh kiwi. Lightly sweet with a crisp fizz, 
+          it delivers a refreshing burst of tangy green goodness.
+        </p>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product">
+        <img src="images/5.png" alt="Main Image" class="main-img">
+        <img src="images/6.png" alt="Hover Image" class="hover-img">
+        <button class="add-to-cart">Add to Cart</button>
+        <p>Mango Sparkling Soda is a tropical delight, blending the juicy 
+          sweetness of ripe mango with a crisp, bubbly fizz. Smooth, fruity, 
+          and refreshing, it’s sunshine in every sip.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <div class="trim2">
+    <img src="images/trim2.png" id="trim2">
+    </div>
+
+<section class="quote" id="quote">
+  Naturally 
+  <span class="flip-container">
+    <span class="flip-words">
+      <span>Bold</span>
+      <span>Refreshing</span>
+      <span>Nectar</span>
+    </span>
+  </span>
+</section>
+
+
+
+<div class="about">
+      <p>
+        We believe refreshment should be simple, delicious, and full of life. 
+        That’s why we created our sparkling fruit juice — a crisp blend of real fruit flavor and bubbly goodness, 
+        with just the right touch of sweetness. Every sip is crafted to lift your mood, energize your day, 
+        and keep you feeling light and refreshed.
+      </p>
+    </div>
+
+    <div class="carousel">
+  <div class="carousel-track">
+    <img src="images/carousel1.png" alt="Photo 1">
+    <img src="images/carousel2.png" alt="Photo 2">
+    <img src="images/carousel3.png" alt="Photo 3">
+    <img src="images/carousel4.png" alt="Photo 4">
+    <img src="images/carousel5.png" alt="Photo 5">
+
+    <!-- duplicate images for seamless loop -->
+
+        <img src="images/carousel1.png" alt="Photo 1">
+    <img src="images/carousel2.png" alt="Photo 2">
+    <img src="images/carousel3.png" alt="Photo 3">
+    <img src="images/carousel4.png" alt="Photo 4">
+    <img src="images/carousel5.png" alt="Photo 5">
+
+  </div>
+</div>
+
+<section class="shape-hero">
+  <img src="images/limited-edition1.png" alt="Decorative shape" class="hero-bg">
+
+  <div class="hero-content">
+    <h1>Guava Glow</h1>
+    <h2>Limited Edition</h2>
+    <h2>Guava - Grape Flavour</h2>
+    <p>Discover our Limited Edition Guava & Grape Sparkling Juice — 
+      a bold blend of tropical guava and juicy grape, 
+      perfectly balanced with refreshing sparkle. Available for a short time only.
+
+    </p>
+    <button class="shape-buynow">Buy Now</button>
+  </div>
+
+  <div class="hero-image">
+    <img src="images/guava-grape.png" alt="Can">
+  </div>
+</section>
+
+
+</section>
+      </div>
+    </div>
+  </div>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h2>Join Our Newsletter</h2>
+      <p>Stay updated with new flavors, offers, and more.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-support">
+      <h2>Support</h2>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Socials -->
+    <div class="footer-socials">
+      <h2>Follow Us</h2>
+      <div class="social-icons">
+        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="images/tiktok.png" alt="TikTok"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Nectar. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+</html>
+
+ <script src="script.js"></script>
