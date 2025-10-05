@@ -1,0 +1,877 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* FONTS */
+@font-face {
+  font-family: 'Coolvetica Rg It';
+  src: url('fonts/Coolvetica Rg It.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Coolvetica Rg';
+  src: url('fonts/Coolvetica Rg.otf') format('opentype');
+}
+
+
+
+/* BODY ----- */
+body {
+  font-family: 'Coolvetica Rg', sans-serif;
+  background-color: white;
+  font-size: larger;
+}
+
+
+
+/* HEADER ELEMENTS SECTION --------------------------------------*/
+/* Topbar */
+.top-bar {
+  background: green;
+  color: #fff;
+  text-align: center;
+  padding: 9px;
+  font-size: 14px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1100;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 50px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+nav .logo img {
+  height: 100px;
+}
+nav ul, nav .actions {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 20px;
+}
+nav a, nav li {
+  color: rgb(255, 242, 0);
+  text-shadow: 1px 1px 4px rgb(108, 108, 108);
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: none; 
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+nav .actions {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger div {
+  width: 38px;
+  height: 7px;
+  border-radius: 10px;
+  background: yellow;
+}
+
+/* HOVER EFFECT - NAV */
+nav ul li a:hover {
+  color: green;
+  transition: color 0.1s ease;
+}
+
+/* RESPONSIVE NAV / HAMBURGER */
+@media (max-width: 600px) {
+  nav ul {
+    display: none;                
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    flex-direction: column;      
+    background: #ffffffae;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 15px;
+  }
+  nav ul.show {
+    display: flex;                
+  }
+  .hamburger {
+    display: flex;                
+  }
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 400px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  border-radius: 20px 0 0 20px;
+  overflow-y: auto;
+}
+.cart-sidebar.active {
+  right: 0;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.cart-header h2, .close-btn {
+  color: green;
+}
+.cart-header h2 {
+  font-size: 28px;
+}
+.close-btn {
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cart-items {
+  flex: 1;
+  padding: 20px;
+}
+.cart-items p {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.checkout-btn:hover {
+  background-color: #0c7a43;
+}
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1100;
+  display: none;
+}
+.cart-overlay.active {
+  display: block;
+}
+/* RESPONSIVE CART */
+@media (max-width: 600px) {
+  .cart-sidebar {
+    width: 90%;
+  }
+}
+
+/* -------------------------------------------------*/
+
+
+
+/* HERO SECTION -----------------------------------*/
+.hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 140px 50px 0 50px;
+  background-image: url('images/nectar-hero1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.hero-text {
+  max-width: 50%;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  top: -90px;
+}
+.hero-text h1 {
+  font-size: 100px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.hero-text h1, .hero-text p {
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+.hero-text button {
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background: green;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ------------------------------------------- */
+
+
+
+/* MAIN SECTION ------------------------------ */
+.main { 
+  color: orange;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 80px;
+}
+
+/* Drink facts */
+.img-facts {
+  padding: 50px;
+  margin-bottom: 20px;
+}
+.img-facts img {
+  width: 170px;
+  height: 170px;
+  padding: 20px;
+}
+#Real-Fruits {
+  width: 200px;
+  height: 140px;
+}
+.fact-question {
+  font-family: 'Coolvetica Rg It', sans-serif;
+  font-size: 80px;
+}
+
+/* Bestsellers */
+.trim, .trim2 {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.trim img, .trim2 img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.image-container {
+  width: 100%;
+  padding-bottom: 30px;
+  text-align: center;
+  background-color: rgb(255, 166, 0);
+}
+.image-container h1 {
+  padding-bottom: 30px;
+  color: white;
+  font-size: 80px;
+}
+.drinks {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.product {
+  position: relative;
+  width: 375px;
+  height: 475px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 125px;
+}
+.product img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+/* HOVER EFFECT - DRINKS */
+.product img.hover-img {
+  opacity: 0;
+}
+.product:hover img.hover-img {
+  opacity: 1;
+}
+.product:hover img.main-img {
+  opacity: 0;
+}
+
+/* Add to cart button */
+.add-to-cart {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 50px;
+  opacity: 0;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+/* HOVER EFFECT - APPEARS /W DRINKS */
+.product:hover .add-to-cart {
+  opacity: 1;
+}
+
+/* About Section ---*/
+.about { 
+  width: 100%; 
+  padding: 40px 150px 60px 150px; 
+  font-size: 35px; 
+}
+/* quote */
+.quote {
+  font-size: 85px;
+  font-weight: bold;
+  text-align: center;
+  color: orange;
+  margin-top: 60px;
+}
+.flip-container {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 1.2em;
+}
+.flip-words {
+  display: flex;
+  flex-direction: column;
+  animation: slideWords 6s linear infinite;
+}
+.flip-words span {
+  line-height: 1.16em;
+}
+
+@keyframes slideWords {
+  0%, 20% { transform: translateY(0); }
+  33%, 53% { transform: translateY(-1.2em); }
+  66%, 86% { transform: translateY(-2.4em); }
+  100% { transform: translateY(0); }
+}
+/* ----- */
+
+
+/* Carousel */
+.carousel { 
+  width: 100%; 
+  margin: 50px auto; 
+  border-radius: 15px; 
+}
+.carousel-track { 
+  display: flex; 
+  width: calc(200%); 
+  animation: scroll 35s linear infinite; 
+}
+.carousel img { 
+  width: 550px; 
+  height: 500px; 
+  object-fit: cover; 
+  margin-right: 20px; 
+  border-radius: 10px; 
+}
+
+@keyframes scroll { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-100%); } 
+}
+/* HOVER EFFECT - Pause Carousel */
+.carousel:hover .carousel-track { 
+  animation-play-state: paused; 
+
+}
+
+
+/* Limited-Edition Hero */
+.le-hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 70px;
+  background: white;
+  overflow: hidden;
+}
+.le-hero .hero-bg {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.le-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  color: white;
+}
+.le-hero .hero-content h1 {
+  margin-right: 130px;
+  font-size: 110px;
+  font-family: 'Coolvetica Rg It', sans-serif;
+}
+.le-hero .hero-content h2 {
+  margin-right: 130px;
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: 'Coolvetica Rg', sans-serif;
+}
+.le-hero .hero-content p {
+  margin-right: 130px;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.le-hero-buynow {
+  margin-right: 130px;
+  padding: 16px 20px;
+  background: #87df61;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+/* Limited-Edition Drink */
+.le-hero .hero-image {
+  position: absolute;
+  top: 30px;
+  right: 95px;
+  width: 200px;
+  z-index: 3;
+  transition: transform 0.5s ease;
+}
+.le-hero .hero-image img {
+  width: 100%;
+  display: block;
+}
+/* HOVER EFFECT - Limited-Edition Drink */
+.le-hero .hero-image:hover {
+  transform: scale(1.2);
+}
+
+/* RESPONSIVE LIMITED EDITION */
+@media (max-width: 600px) {
+  .le-hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    padding: 60px 20px;
+  }
+  .le-hero .hero-content {
+    max-width: 100%;
+    margin: 0 auto 30px auto;
+    color: white;
+  }
+  .le-hero .hero-content h1 {
+    font-size: 45px;
+    margin-right: 0;
+  }
+  .le-hero .hero-content h2 {
+    font-size: 24px;
+    margin-right: 0;
+  }
+  .le-hero .hero-content p {
+    font-size: 16px;
+    margin-right: 0;
+  }
+  .le-hero-buynow {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 20px auto;
+    display: inline-block;
+  }
+  .le-hero .hero-image {
+    position: static;
+    margin: 0 auto;
+    width: 160px;
+  }
+}
+
+/* ------------------------------------------------- */
+
+
+
+/* FOOTER SECTION ------------------------------------ */
+.footer {
+  background: green;
+  color: white;
+  padding: 60px 50px;
+  font-family: 'Coolvetica Rg', sans-serif;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 100px;
+}
+.footer-newsletter, .footer-support, .footer-socials {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer h2 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.footer p {
+  margin-bottom: 20px;
+}
+/* Newsletter */
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.newsletter-form input {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  flex: 1;
+  min-width: 220px;
+}
+.newsletter-form button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: green;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Support */
+.footer-support ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-support li {
+  margin-bottom: 10px;
+}
+.footer-support a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-support a:hover {
+  color: #ffd700;
+}
+/* Socials */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+/* RESPONSIVE - Footer */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  .footer-newsletter,
+  .footer-support,
+  .footer-socials {
+    min-width: auto;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+
+
+
+/* OTHER HERO BANNERS ----------------------------------- */
+/* Contact Hero */
+.contact-hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px;
+  background-image: url('images/nectar-hero2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 140px;
+}
+
+.shop-hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px;
+  background-image: url('images/nectar-hero3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 140px;
+}
+
+.checkout-hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 50px;
+  background-image: url('images/nectar-hero4.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 140px;
+}
+
+/* CONTACT SPECIFIC CSS --------------------------------- * /
+
+/* Contact Split Section */
+.contact-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 100px 10%;
+  background: orange; 
+  color: white;
+}
+.contact-info, .contact-form-container {
+  flex: 1;
+}
+.contact-info h2, .contact-form-container h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-family: 'Coolvetica Rg It', sans-serif;
+}
+.contact-info p {
+  margin: 15px 0;
+  font-size: 26px;
+  line-height: 1.5;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  font-family: 'Coolvetica Rg', sans-serif;
+  color: black;
+}
+.contact-form textarea {
+  resize: none;
+}
+.contact-form button {
+  padding: 15px 30px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* RESPONSIVE - Contact */
+@media (max-width: 600px) {
+  .contact-split {
+    flex-direction: column;
+    padding: 60px 8%;
+    gap: 40px;
+  }
+  .contact-info h2, .contact-form-container h2 {
+    font-size: 32px;
+  }
+  .contact-info p {
+    font-size: 18px;
+  }
+}
+
+
+
+
+/* Account Menu Dropdown */
+.content{
+    font-size: 30px;
+    padding: 50px 50px;
+     
+}
+/* Actions  */
+#mobileMenu .dropdown ul{
+    list-style: none;
+    display:flex;
+    gap:10px;
+    padding:0;
+    margin:0;
+    align-items: center;
+
+}
+#mobileMenu .dropdown li{
+    position: relative;
+    display: flex;
+    align-items: center;
+}    
+#mobileMenu li.dropdown a{
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+    
+    
+}
+#mobileMenu li .dropdown a:hover{
+    text-align: left;
+    border-radius: 5px;
+
+
+}
+#mobileMenu li.account-menu{
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+#mobileMenu li.account-menu .dropdown{
+
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    padding: 10px;
+   
+
+}
+#mobileMenu li.account-menu:hover .dropdown{
+    display: block;
+}
+.dropdown .inline-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    padding: 5px 10px;
+}
+.dropdown .inline-link a{
+    padding: 0;
+    color:white;
+    text-decoration: none;
+
+}
+.dropdown .inline-link a:hover{
+    text-decoration: underline;
+}
+.dropdown hr{
+    margin:5px 0;
+    border:0.5px solid black;
+} 
+
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.cart-item .fw-bold {
+  font-size: 1rem;
+  color: #333;
+}
+
+.cart-item .text-muted {
+  font-size: 0.95rem;
+}
+
+.cart-item .btn-danger {
+  padding: 6px 12px;
+  border-radius: 6px;
+}

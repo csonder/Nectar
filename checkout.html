@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+  <title>NECTAR - Checkout</title>
+
+</head>
+
+
+
+<body>
+
+<section class="header-elements">
+  <!-- Cart Sidebar -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="close-btn" onclick="closeCart()">&times;</span>
+    </div>
+    <div class="cart-items">
+      <p>Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <span class="scroll-text">FREE SHIPPING ON ALL ORDERS!</span>
+  </div>
+
+  <!-- Navbar (start) -->
+  <nav>
+
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo2.png" href="index.html" alt="Nectar Logo">
+      </a>
+    </div>
+
+    <!-- Main Menu -->
+    <ul id="mobileMenu">
+      <li><a href="index.html#trim2">ABOUT</a></li>
+      <li><a href="shop.html">SHOP</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+
+      <li class="account-menu">
+        <a href="#">ACCOUNT</a>
+        <ul class="dropdown">
+          <li><a href="signup.html" id="signupButton">Sign Up</a></li>
+          <hr>
+          <li><a href="detail.html">My Detail</a></li>
+          <li><a href="order.html">My Order</a></li>
+          <li><a href="payment.html">Payment Method</a></li>
+        </ul>
+      </li>
+      <li><a href="cart.html">CART</a></li>
+    </ul>
+
+    <!-- Hamburger Button -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </nav>
+  <!-- Navbar (end) -->
+</section>
+
+
+<!-- Checkout Hero Section -->
+<section class="checkout-hero">
+  <div class="hero-text">
+    <h1>Recieve Your NECTAR</h1>
+      <p>Let's checkout</p>
+  </div>
+</section>
+
+
+
+<!-- Checkout Section -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">Checkout</h2>
+
+  <!-- Cart Summary -->
+  <div class="card p-4 shadow-sm mb-4">
+    <h5 class="mb-3">Your Selected Flavors</h5>
+    <div id="checkoutItems"></div>
+    <div class="text-end mt-3">
+      <h4>Total: ฿<span id="checkoutTotal">0</span></h4>
+    </div>
+  </div>
+
+  <!-- Shipping Info -->
+  <div class="card p-4 shadow-sm mb-4">
+    <h5 class="mb-3">Shipping Information</h5>
+    <div class="mb-3">
+      <label for="name" class="form-label">Firstname</label>
+      <input type="text" id="name" class="form-control" placeholder="Enter your Firstname" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Lastname</label>
+      <input type="text" id="lastname" class="form-control" placeholder="Enter your Lastname" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Phone Number</label>
+      <input type="text" id="tel" class="form-control" placeholder="Enter your Phone Number" required>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <textarea id="address" class="form-control" rows="3" placeholder="Enter your Address" required></textarea>
+    </div>
+  </div>
+
+  <!-- Confirm Button & Order Name -->
+  <div class="text-end">
+    <button class="btn btn-success px-4" onclick="confirmCheckout()">Confirm Purchase</button>
+    <div id="orderNameDisplay" class="alert alert-info d-none mt-3"></div>
+  </div>
+</div>
+
+
+
+<footer class="footer">
+  <!-- Footer -->
+  <div class="footer-container">
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h2>Join Our Newsletter</h2>
+        <p>Stay updated with new flavors, offers, and more.</p>
+        <form class="newsletter-form" onsubmit="newsletter()">
+          <input type="email" placeholder="Enter your email" id="footer-email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <!-- Support -->
+    <div class="footer-support">
+      <h2>Support</h2>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <!-- Socials -->
+    <div class="footer-socials">
+      <h2>Follow Us</h2>
+        <div class="social-icons">
+          <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="images/tiktok.png" alt="TikTok"></a>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Nectar. All Rights Reserved.</p>
+  </div>
+</footer>
+  
+<!-- JS SCRIPT -->
+<script src="js/script.js"></script>
+
+<script>
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+  }
+
+  function renderCheckout() {
+    const container = document.getElementById('checkoutItems');
+    const totalDisplay = document.getElementById('checkoutTotal');
+    const cart = getCart();
+    let total = 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      totalDisplay.textContent = "0";
+      return;
+    }
+
+    container.innerHTML = '';
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const div = document.createElement('div');
+      div.className = "d-flex justify-content-between align-items-center p-2 mb-2 border rounded";
+      div.innerHTML = `
+        <div>
+          <span class="fw-bold text-primary">Flavor: ${item.name}</span>
+          <span class="text-muted ms-2">฿${item.price} × ${item.quantity}</span>
+        </div>
+        <div><strong>฿${itemTotal}</strong></div>
+      `;
+      container.appendChild(div);
+    });
+
+    totalDisplay.textContent = total;
+  }
+
+  function confirmCheckout() {
+    const cart = getCart();
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add items before confirming your purchase.");
+      return;
+    }
+
+    const name = document.getElementById('name').value.trim();
+    const lastname = document.getElementById('lastname').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const tel = document.getElementById('tel').value.trim();
+    const orderNameDisplay = document.getElementById('orderNameDisplay');
+
+    if (!name || !lastname || !address || !tel) {
+      alert("Please fill out all required fields before confirming.");
+      return;
+    }
+
+    alert(`Thank you for your purchase, ${name} ${lastname}!\nYour order will be shipped to:\n${address}\nPhone: ${tel}`);
+
+    localStorage.removeItem('cart');
+    renderCheckout();
+
+    document.getElementById('name').value = '';
+    document.getElementById('lastname').value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('tel').value = '';
+
+    orderNameDisplay.textContent = `Order confirmed for ${name} ${lastname}`;
+    orderNameDisplay.classList.remove('d-none');
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCheckout);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+  <title>NECTAR</title>
+
+</head>
+
+
+
+<body>
+
+<section class="header-elements">
+  <!-- Cart Sidebar -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="close-btn" onclick="closeCart()">&times;</span>
+    </div>
+    <div class="cart-items">
+      <p>Your cart is empty.</p>
+    </div>
+    <div class="cart-footer">
+      <button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <span>FREE SHIPPING ON ALL ORDERS!</span>
+  </div>
+
+  <!-- Navbar (start) -->
+  <nav>
+
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo2.png" href="index.html" alt="Nectar Logo">
+      </a>
+    </div>
+
+    <!-- Main Menu -->
+    <ul id="mobileMenu">
+      <li><a href="index.html#trim2">ABOUT</a></li>
+      <li><a href="shop.html">SHOP</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+
+      <li class="account-menu">
+        <a href="#">ACCOUNT</a>
+        <ul class="dropdown">
+          <li><a href="signup.html" id="signupButton">Sign Up</a></li>
+          <hr>
+          <li><a href="detail.html">My Detail</a></li>
+          <li><a href="order.html">My Order</a></li>
+          <li><a href="payment.html">Payment Method</a></li>
+        </ul>
+      </li>
+      <li><a href="cart.html">CART</a></li>
+    </ul>
+
+    <!-- Hamburger Button -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </nav>
+  <!-- Navbar (end) -->
+</section>
+
+
+
+<section class="hero">
+  <!-- Hero Section -->
+  <div class="hero-text">
+    <h1>NECTAR</h1>
+      <p>Sparkling Fruit Juice</p>
+        <a href="shop.html">
+          <button>Shop Nectar</button>
+        </a>
+  </div>
+</section>
+
+<section class="main">
+  <!-- Drink Facts -->
+  <div class="drink-facts">
+    <h1 class="fact-question">Why Drink Nectar?</h1>
+      <div class="img-facts">
+        <img src="images/fact3.png" alt="No GMO">
+        <img src="images/fact1.png" alt="Real Fruits" id="Real-Fruits">
+        <img src="images/fact2.png" alt="Only 5g Sugar">
+        <img src="images/fact5.png" alt="Natural Flavors">
+        <img src="images/fact4.png" alt="25 Calories">
+      </div>
+  </div>
+
+
+  <!-- Best Sellers (start)-->
+  <div class="trim">
+    <img src="images/trim1.png" id="trim1">
+  </div>
+
+  <div class="image-container">
+    <h1>Bestsellers</h1>
+    <div class="drinks">
+      <!-- Product 1 -->
+      <div class="product">
+        <img src="images/1.png" alt="Main Image" class="main-img">
+        <img src="images/2.png" alt="Hover Image" class="hover-img">
+          <button class="add-to-cart" onclick="addToCart('Strawberry', 45)">Add to Cart</button>
+      </div>
+      <!-- Product 2 -->
+      <div class="product">
+        <img src="images/3.png" alt="Main Image" class="main-img">
+        <img src="images/4.png" alt="Hover Image" class="hover-img">
+          <button class="add-to-cart" onclick="addToCart('Kiwi', 45)">Add to Cart</button>
+      </div>
+      <!-- Product 3 -->
+      <div class="product">
+        <img src="images/5.png" alt="Main Image" class="main-img">
+        <img src="images/6.png" alt="Hover Image" class="hover-img">
+          <button class="add-to-cart" onclick="addToCart('Mango', 45)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="trim2">
+    <img src="images/trim2.png" id="trim2">
+  </div>
+  <!-- Best Sellers (end)-->
+
+
+  <!-- About -->
+  <div class="quote" id="quote">Naturally 
+    <span class="flip-container">
+    <span class="flip-words">
+      <span>Bold</span>
+      <span>Refreshing</span>
+      <span>Nectar</span>
+    </span>
+    </span>
+  </div>
+
+  <div class="about">
+    <p> We believe refreshment should be simple, delicious, and full of life. 
+      That’s why we created our sparkling fruit juice — a crisp blend of real fruit flavor and bubbly goodness, 
+      with just the right touch of sweetness. Every sip is crafted to lift your mood, energize your day, 
+      and keep you feeling light and refreshed.
+    </p>
+  </div>
+
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="images/carousel1.png" alt="Photo 1">
+      <img src="images/carousel2.png" alt="Photo 2">
+      <img src="images/carousel3.png" alt="Photo 3">
+      <img src="images/carousel4.png" alt="Photo 4">
+      <img src="images/carousel5.png" alt="Photo 5">
+      <!-- Loop -->
+      <img src="images/carousel1.png" alt="Photo 1">
+      <img src="images/carousel2.png" alt="Photo 2">
+      <img src="images/carousel3.png" alt="Photo 3">
+      <img src="images/carousel4.png" alt="Photo 4">
+      <img src="images/carousel5.png" alt="Photo 5">
+    </div>
+  </div>
+
+
+  <!-- Limited Edition Hero -->
+  <div class="le-hero">
+    <img src="images/limited-edition1.png" alt="Decorative shape" class="hero-bg">
+
+    <div class="hero-content">
+      <h1>Guava Glow</h1>
+        <h2>Limited Edition</h2>
+        <h2>Guava - Grape Flavour</h2>
+          <p>Discover our Limited Edition Guava & Grape Sparkling Juice — 
+            a bold blend of tropical guava and juicy grape, 
+            perfectly balanced with refreshing sparkle. Available for a short time only.
+          </p>
+      <button class="le-hero-buynow" onclick="addToCart('Guava Glow', 55)">Buy Now</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/guava-grape.png" alt="Can">
+    </div>
+  </div>
+
+</section>
+
+
+
+<footer class="footer">
+  <!-- Footer -->
+  <div class="footer-container">
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h2>Join Our Newsletter</h2>
+        <p>Stay updated with new flavors, offers, and more.</p>
+        <form class="newsletter-form" onsubmit="newsletter()">
+          <input type="email" placeholder="Enter your email" id="footer-email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <!-- Support -->
+    <div class="footer-support">
+      <h2>Support</h2>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <!-- Socials -->
+    <div class="footer-socials">
+      <h2>Follow Us</h2>
+        <div class="social-icons">
+          <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="images/tiktok.png" alt="TikTok"></a>
+        </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Nectar. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
+
+<!-- JS SCRIPT -->
+<script src="js/script.js"></script>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <title>Payment Method</title>
+
+    <style>
+       body{
+
+        font-family: 'Gill Sans';
+        background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+        padding: 10px;
+       }
+       .payment-container{
+        background: white;
+        max-width: 400px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 4px 15px 10px rgba(0,0,0,0.13);
+
+       }
+       .payment-container h1{
+        text-align: center;
+        margin-bottom: 20px;
+        color: black;
+       }
+       label{
+        display: block;
+        margin-top: 20px;
+        font-weight: bold;
+        color: black;
+       }
+       input{
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid black;
+        border-radius: 6px;
+        box-sizing: border-box;
+        
+       }
+       select{
+         width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid black;
+        border-radius: 6px;
+        box-sizing: border-box;
+        
+       }
+       input:focus, select:focus{
+        border-color: rgb(255, 4, 0);
+        outline: none;
+       }
+       button{
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        background: green;
+        border: none;
+        color: white;
+        font-size: 18px;
+        border-radius: 6px;
+        cursor: pointer;
+
+       }
+       button:hover{
+        background: green;
+       }
+
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+    <h1>Payment Method</h1>
+    <form id="paymentForm">
+        <label>Cardholder Name</label><br>
+        <input type="text" id="cardName" placeholder="Cardholder Name" required><br>
+
+        <label>Card Number</label><br>
+        <input type="text" id="CardNum" maxlength="16" placeholder="1234 5678 9012 3456" required><br>
+
+        <label>Expiry Date</label><br>
+        <input type="month" id="expiry" required><br>
+
+        <label>CVV</label>
+        <input type="password" id="cvv" maxlength="4" placeholder="CVV"><br>
+
+        <label>Country</label><br>
+        <select id="country" required>
+            <option>Select Country</option>
+            <option>United States</option>
+            <option>Thailand</option>
+            <option>United Kingdom</option>
+            <option>Japan</option>
+            <option>Chinese</option>
+            <option>German</option>
+            <option>Singapore</option>
+            <option>French</option>
+            <option>Italy</option>
+        </select><br>
+
+        <button type="submit" class="btn-save">Save Payment</button>
+
+
+    </form>
+    
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("paymentForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        var paymentData = {
+            cardName: this.cardName.value,
+            CardNum: this.CardNum.value,
+            expiry: this.expiry.value,
+            country: this.country.value
+        };
+
+
+        console.log("Save Payment Method:", paymentData);
+        alert("Payment method saved successfully.");
+        this.reset();
+    })
+
+</script>

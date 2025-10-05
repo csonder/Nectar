@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png" />
+    <title>My Order</title>
+
+    <style>
+        body{
+            font-family:  Verdana;
+            margin: 20px;
+            background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+        }
+        h1{
+            text-align: center;
+            color: black;
+            margin-bottom: 30px;
+        }
+        .status-completed{
+            color: green;
+            font-weight: bold;
+            background: rgb(186, 212, 148);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        .status-pending{
+            color:orange;
+            font-weight: bold;
+            background: rgb(245, 210, 144);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        .status-cancelled{
+            color: red;
+            font-weight: bold;
+            background: rgb(235, 143, 143);
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        .order-id{
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 20px;
+            width: 70px;
+            color: black;
+        }
+        .order-card{
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            transition: transform 0.2s;
+            box-shadow: 0.2s;
+        
+        }
+        .order-card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+        }
+        .order-image img{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .order-item p{
+            margin: 4px 0;
+            font-size: 14px;
+            color: black;
+        }
+          @media(max-width:600px){
+            .order-card{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .order-id{
+                margin-bottom: 10px;
+            }
+            .order-image{
+                margin-bottom: 10px;
+            }
+
+        
+       }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Order History</h1>
+
+                <div class="order-card">
+                         <span class="order-id">#0001</span>
+                        <div class="order-image">
+                            <p><img src="images/1.png" alt="Nectar"></p>
+                        </div>
+                        <div class="order-item">
+                            <p><strong>Date: </strong>09-11-2025</p>
+                            <p><strong>Item: </strong>Strawberry</p>
+                            <p><strong>Quantity: </strong>2</p>
+                            <p><strong>Total: </strong>$9999999</p>
+                            <p><strong>Status:</strong> <span class="status-completed">Completed</span></p>
+                            
+                       </div>
+                    
+                </div>
+                <div class="order-card">
+                    
+                         <span class="order-id">#0002</span>
+                        <div class="order-image">
+                            <p><img src="images/3.png" alt="Nectar"></p>
+                        </div>
+                        <div class="order-item">
+                            <p><strong>Date: </strong>10-12-2025</p>
+                            <p><strong>Item: </strong>Kiwi</p>
+                            <p><strong>Quantity: </strong>1</p>
+                            <p><strong>Total: </strong>$9999999</p>
+                            <p><strong>Status:</strong> <span class="status-pending">Pending</span></p>
+                            
+                       </div>
+                    
+                </div>
+               <div class="order-card">
+                   
+                         <span class="order-id">#0003</span>
+                        <div class="order-image">
+                            <p><img src="images/5.png" alt="Nectar"></p>
+                        </div>
+                        <div class="order-item">
+                            <p><strong>Date: </strong>12-12-2025</p>
+                            <p><strong>Item: </strong>Mango</p>
+                            <p><strong>Quantity: </strong>10</p>
+                            <p><strong>Total: </strong>$9999999</p>
+                            <p><strong>Status:</strong> <span class="status-cancelled">Cancelled</span></p>
+                            
+                       </div>
+                    
+                </div>
+                
+    </body>
+</html>
